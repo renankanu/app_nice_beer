@@ -16,11 +16,19 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: <Widget>[],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18),
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: 20),
+              Text(
+                'Beer of today',
+                style: TextStyle(fontSize: 32),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

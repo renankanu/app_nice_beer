@@ -1,5 +1,6 @@
 import 'package:app_nice_beer/app/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class IntroScreen extends StatefulWidget {
@@ -23,6 +24,9 @@ class _IntroScreenState extends State<IntroScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
+    );
     const bodyStyle = TextStyle(fontSize: 19.0);
     const pageDecoration = const PageDecoration(
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
@@ -57,7 +61,6 @@ class _IntroScreenState extends State<IntroScreen> {
         ),
       ],
       onDone: () => _onIntroEnd(context),
-      //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: true,
       skipFlex: 0,
       nextFlex: 0,
@@ -71,7 +74,7 @@ class _IntroScreenState extends State<IntroScreen> {
         size: Size(10.0, 10.0),
         color: CustomColors.emerald80,
         activeColor: CustomColors.emerald,
-        activeSize: Size(22.0, 10.0),
+        activeSize: Size(44.0, 10.0),
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
         ),
