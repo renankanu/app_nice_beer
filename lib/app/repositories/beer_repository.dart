@@ -2,6 +2,8 @@ import 'package:app_nice_beer/app/models/beer_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+part 'beer_repository.g.dart';
+
 @Injectable()
 class BeerRepository extends Disposable {
   final Dio _dio;
