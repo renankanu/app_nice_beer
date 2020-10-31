@@ -10,6 +10,7 @@ class BeerModel {
   @JsonKey(name: 'first_brewed')
   String firstBrewed;
   String description;
+  @JsonKey(name: 'image_url')
   String imageUrl;
   double abv;
   int ibu;
