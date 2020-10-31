@@ -7,23 +7,31 @@ class BeerModel {
   int id;
   String name;
   String tagline;
+  @JsonKey(name: 'first_brewed')
   String firstBrewed;
   String description;
   String imageUrl;
   double abv;
   int ibu;
+  @JsonKey(name: 'target_fg')
   int targetFg;
+  @JsonKey(name: 'target_og')
   int targetOg;
   double ebc;
   double srm;
   double ph;
-  int attenuationLevel;
+  @JsonKey(name: 'attenuation_level')
+  double attenuationLevel;
   VolumeModel volume;
+  @JsonKey(name: 'boil_volume')
   VolumeModel boilVolume;
   MethodModel method;
   IngredientsModel ingredients;
+  @JsonKey(name: 'food_pairing')
   List<String> foodPairing;
+  @JsonKey(name: 'brewers_tips')
   String brewersTips;
+  @JsonKey(name: 'contributed_by')
   String contributedBy;
   BeerModel({
     this.id,
@@ -55,7 +63,7 @@ class BeerModel {
 
 @JsonSerializable()
 class VolumeModel {
-  int value;
+  dynamic value;
   String unit;
 
   VolumeModel({this.value, this.unit});

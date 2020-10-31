@@ -1,5 +1,6 @@
 import 'package:app_nice_beer/app/modules/home/home_controller.dart';
-import 'package:dio/dio.dart';
+import 'package:app_nice_beer/app/modules/home/repositories/home_repository.dart';
+import 'package:dio/native_imp.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -9,7 +10,8 @@ class HomeModule extends ChildModule {
   @override
   List<Bind> get binds => [
         $HomeController,
-        Bind((i) => Dio()),
+        $HomeRepository,
+        Bind((i) => DioForNative()),
       ];
 
   @override

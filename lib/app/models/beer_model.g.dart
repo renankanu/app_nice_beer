@@ -11,23 +11,23 @@ BeerModel _$BeerModelFromJson(Map<String, dynamic> json) {
     id: json['id'] as int,
     name: json['name'] as String,
     tagline: json['tagline'] as String,
-    firstBrewed: json['firstBrewed'] as String,
+    firstBrewed: json['first_brewed'] as String,
     description: json['description'] as String,
     imageUrl: json['imageUrl'] as String,
     abv: (json['abv'] as num)?.toDouble(),
     ibu: json['ibu'] as int,
-    targetFg: json['targetFg'] as int,
-    targetOg: json['targetOg'] as int,
+    targetFg: json['target_fg'] as int,
+    targetOg: json['target_og'] as int,
     ebc: (json['ebc'] as num)?.toDouble(),
     srm: (json['srm'] as num)?.toDouble(),
     ph: (json['ph'] as num)?.toDouble(),
-    attenuationLevel: json['attenuationLevel'] as int,
+    attenuationLevel: (json['attenuation_level'] as num)?.toDouble(),
     volume: json['volume'] == null
         ? null
         : VolumeModel.fromJson(json['volume'] as Map<String, dynamic>),
-    boilVolume: json['boilVolume'] == null
+    boilVolume: json['boil_volume'] == null
         ? null
-        : VolumeModel.fromJson(json['boilVolume'] as Map<String, dynamic>),
+        : VolumeModel.fromJson(json['boil_volume'] as Map<String, dynamic>),
     method: json['method'] == null
         ? null
         : MethodModel.fromJson(json['method'] as Map<String, dynamic>),
@@ -36,9 +36,9 @@ BeerModel _$BeerModelFromJson(Map<String, dynamic> json) {
         : IngredientsModel.fromJson(
             json['ingredients'] as Map<String, dynamic>),
     foodPairing:
-        (json['foodPairing'] as List)?.map((e) => e as String)?.toList(),
-    brewersTips: json['brewersTips'] as String,
-    contributedBy: json['contributedBy'] as String,
+        (json['food_pairing'] as List)?.map((e) => e as String)?.toList(),
+    brewersTips: json['brewers_tips'] as String,
+    contributedBy: json['contributed_by'] as String,
   );
 }
 
@@ -46,29 +46,29 @@ Map<String, dynamic> _$BeerModelToJson(BeerModel instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'tagline': instance.tagline,
-      'firstBrewed': instance.firstBrewed,
+      'first_brewed': instance.firstBrewed,
       'description': instance.description,
       'imageUrl': instance.imageUrl,
       'abv': instance.abv,
       'ibu': instance.ibu,
-      'targetFg': instance.targetFg,
-      'targetOg': instance.targetOg,
+      'target_fg': instance.targetFg,
+      'target_og': instance.targetOg,
       'ebc': instance.ebc,
       'srm': instance.srm,
       'ph': instance.ph,
-      'attenuationLevel': instance.attenuationLevel,
+      'attenuation_level': instance.attenuationLevel,
       'volume': instance.volume,
-      'boilVolume': instance.boilVolume,
+      'boil_volume': instance.boilVolume,
       'method': instance.method,
       'ingredients': instance.ingredients,
-      'foodPairing': instance.foodPairing,
-      'brewersTips': instance.brewersTips,
-      'contributedBy': instance.contributedBy,
+      'food_pairing': instance.foodPairing,
+      'brewers_tips': instance.brewersTips,
+      'contributed_by': instance.contributedBy,
     };
 
 VolumeModel _$VolumeModelFromJson(Map<String, dynamic> json) {
   return VolumeModel(
-    value: json['value'] as int,
+    value: json['value'],
     unit: json['unit'] as String,
   );
 }

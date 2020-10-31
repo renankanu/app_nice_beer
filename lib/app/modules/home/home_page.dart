@@ -26,6 +26,12 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 'Beer of today',
                 style: TextStyle(fontSize: 32),
               ),
+              GestureDetector(
+                onTap: () {
+                  controller.getRandomBeer();
+                },
+                child: Text('Click me'),
+              )
             ],
           ),
         ),
