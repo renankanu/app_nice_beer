@@ -64,7 +64,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                 color: CustomColors.black,
                               ),
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 10),
                             RichTextCusrom(
                               label: 'First Brewed',
                               valueText: controller.randomBeer.firstBrewed,
@@ -128,15 +128,24 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: 20,
-                            ),
+                            SizedBox(height: 20),
                             Center(
                               child: Divider(
-                                height: 1,
-                                thickness: 1,
-                                color: CustomColors.black,
-                              ),
+                                  height: 1,
+                                  thickness: 1,
+                                  color: CustomColors.black),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              'Ingredients',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            SizedBox(height: 20),
+                            Center(
+                              child: Divider(
+                                  height: 1,
+                                  thickness: 1,
+                                  color: CustomColors.black),
                             ),
                             SizedBox(
                               height: 20,
