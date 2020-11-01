@@ -68,6 +68,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             RichTextCusrom(
                               label: 'First Brewed',
                               valueText: controller.randomBeer.firstBrewed,
+                              labelSize: 16,
+                              valueTextLabel: 16,
+                              labelColor: CustomColors.texasRose,
+                              labelWeight: FontWeight.w700,
                             ),
                             SizedBox(height: 8),
                             Container(
@@ -78,6 +82,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                     label: 'ABV',
                                     valueText:
                                         controller.randomBeer.abv.toString(),
+                                    labelSize: 16,
+                                    valueTextLabel: 16,
+                                    labelColor: CustomColors.texasRose,
+                                    labelWeight: FontWeight.w700,
                                   ),
                                   Positioned(
                                     left: width * 0.3,
@@ -85,6 +93,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                       label: 'IBU',
                                       valueText:
                                           controller.randomBeer.ibu.toString(),
+                                      labelSize: 16,
+                                      valueTextLabel: 16,
+                                      labelColor: CustomColors.texasRose,
+                                      labelWeight: FontWeight.w700,
                                     ),
                                   ),
                                   Positioned(
@@ -93,6 +105,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                       label: 'EBC',
                                       valueText:
                                           controller.randomBeer.ebc.toString(),
+                                      labelSize: 16,
+                                      valueTextLabel: 16,
+                                      labelColor: CustomColors.texasRose,
+                                      labelWeight: FontWeight.w700,
                                     ),
                                   ),
                                 ],
@@ -107,6 +123,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                     label: 'SRM',
                                     valueText:
                                         controller.randomBeer.srm.toString(),
+                                    labelSize: 16,
+                                    valueTextLabel: 16,
+                                    labelColor: CustomColors.texasRose,
+                                    labelWeight: FontWeight.w700,
                                   ),
                                   Positioned(
                                     left: width * 0.3,
@@ -114,6 +134,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                       label: 'PH',
                                       valueText:
                                           controller.randomBeer.ph.toString(),
+                                      labelSize: 16,
+                                      valueTextLabel: 16,
+                                      labelColor: CustomColors.texasRose,
+                                      labelWeight: FontWeight.w700,
                                     ),
                                   ),
                                   Positioned(
@@ -123,6 +147,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                       valueText: controller
                                           .randomBeer.attenuationLevel
                                           .toString(),
+                                      labelSize: 16,
+                                      valueTextLabel: 16,
+                                      labelColor: CustomColors.texasRose,
+                                      labelWeight: FontWeight.w700,
                                     ),
                                   ),
                                 ],
@@ -140,6 +168,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                               'Ingredients',
                               style: TextStyle(fontSize: 16),
                             ),
+                            SizedBox(height: 10),
                             Row(
                               children: [
                                 Image.asset(
@@ -155,6 +184,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                 ),
                               ],
                             ),
+                            SizedBox(height: 10),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: controller.randomBeer.ingredients.malt
@@ -178,12 +208,40 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                   .toList(),
                             ),
                             SizedBox(height: 20),
-                            Text('Hops'),
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'assets/icons/hop.png',
+                                  height: 20,
+                                ),
+                                Text(
+                                  'Hops',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: CustomColors.emerald),
+                                ),
+                              ],
+                            ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: controller.randomBeer.ingredients.hops
-                                  .map((ingredient) => Text(
-                                        ingredient.name,
+                                  .map((ingredient) => Container(
+                                        child: Container(
+                                          margin:
+                                              const EdgeInsets.only(bottom: 12),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                ingredient.name,
+                                              ),
+                                              Text(ingredient?.amount?.value
+                                                  .toString()),
+                                            ],
+                                          ),
+                                        ),
                                       ))
                                   .toList(),
                             ),

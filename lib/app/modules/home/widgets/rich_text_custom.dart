@@ -7,10 +7,18 @@ class RichTextCusrom extends StatelessWidget {
     Key key,
     @required this.label,
     @required this.valueText,
+    @required this.labelSize,
+    @required this.valueTextLabel,
+    @required this.labelColor,
+    @required this.labelWeight,
   }) : super(key: key);
 
   final String label;
   final String valueText;
+  final double labelSize;
+  final double valueTextLabel;
+  final Color labelColor;
+  final FontWeight labelWeight;
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +29,15 @@ class RichTextCusrom extends StatelessWidget {
             text: '$label: ',
             style: GoogleFonts.robotoSlab(
                 textStyle: TextStyle(
-                    color: CustomColors.texasRose,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16)),
+                    color: labelColor,
+                    fontWeight: labelWeight,
+                    fontSize: labelSize)),
           ),
           TextSpan(
             text: valueText,
             style: GoogleFonts.robotoSlab(
-                textStyle: TextStyle(color: CustomColors.black, fontSize: 16)),
+                textStyle: TextStyle(
+                    color: CustomColors.black, fontSize: valueTextLabel)),
           ),
         ],
       ),
