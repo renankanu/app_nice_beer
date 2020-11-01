@@ -140,6 +140,53 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                               'Ingredients',
                               style: TextStyle(fontSize: 16),
                             ),
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'assets/icons/malt.png',
+                                  height: 20,
+                                ),
+                                Text(
+                                  'Malt',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: CustomColors.emerald),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: controller.randomBeer.ingredients.malt
+                                  .map((ingredient) => Container(
+                                        child: Container(
+                                          margin:
+                                              const EdgeInsets.only(bottom: 12),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                ingredient.name,
+                                              ),
+                                              Text(ingredient?.amount?.value
+                                                  .toString())
+                                            ],
+                                          ),
+                                        ),
+                                      ))
+                                  .toList(),
+                            ),
+                            SizedBox(height: 20),
+                            Text('Hops'),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: controller.randomBeer.ingredients.hops
+                                  .map((ingredient) => Text(
+                                        ingredient.name,
+                                      ))
+                                  .toList(),
+                            ),
                             SizedBox(height: 20),
                             Center(
                               child: Divider(
