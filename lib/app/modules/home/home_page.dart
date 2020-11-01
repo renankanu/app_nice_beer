@@ -1,3 +1,4 @@
+import 'package:app_nice_beer/app/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -49,6 +50,40 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             Text('Name: ${controller.randomBeer.name}'),
                             Text('Tagline: ${controller.randomBeer.tagline}'),
                             Text(controller.randomBeer.description),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Center(
+                              child: Divider(
+                                height: 1,
+                                thickness: 1,
+                                color: CustomColors.black,
+                              ),
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                children: <TextSpan>[
+                                  TextSpan(
+                                      text: 'First Brewed: ',
+                                      style: TextStyle(
+                                          color: CustomColors.texasRose,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16)),
+                                  TextSpan(
+                                    text: controller.randomBeer.firstBrewed,
+                                    style: TextStyle(
+                                        color: CustomColors.black,
+                                        fontSize: 16),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Text(controller.randomBeer.abv.toString()),
+                                Text(controller.randomBeer.ebc.toString()),
+                              ],
+                            ),
                             GestureDetector(
                               onTap: () {
                                 controller.getRandomBeer();
