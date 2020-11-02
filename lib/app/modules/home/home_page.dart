@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'home_controller.dart';
+import 'widgets/buttom_random.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -334,22 +335,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                   .toList(),
                             ),
                             SizedBox(height: 20),
-                            GestureDetector(
-                              onTap: () {
-                                controller.getRandomBeer();
-                              },
-                              child: Container(
-                                width: double.infinity,
-                                height: 46,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: CustomColors.texasRose),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Center(child: Text('Click me')),
-                                ),
-                              ),
-                            )
+                            ButtomRandom(controller: controller)
                           ],
                         ),
                       )),
