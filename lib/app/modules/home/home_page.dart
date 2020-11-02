@@ -306,8 +306,32 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                   thickness: 1,
                                   color: CustomColors.black),
                             ),
-                            SizedBox(
-                              height: 20,
+                            SizedBox(height: 20),
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'assets/icons/food.png',
+                                  height: 20,
+                                ),
+                                SizedBox(width: 5),
+                                Text(
+                                  'Matching foods',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: CustomColors.tomato),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: controller.randomBeer.foodPairing
+                                  .map((food) => Container(
+                                      margin:
+                                          const EdgeInsets.only(bottom: 8.0),
+                                      child: Text(food)))
+                                  .toList(),
                             ),
                             GestureDetector(
                               onTap: () {
