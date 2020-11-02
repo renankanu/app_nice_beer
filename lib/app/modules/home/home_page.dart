@@ -65,8 +65,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                               ),
                             ),
                             SizedBox(height: 10),
-                            RichTextCusrom(
-                              label: 'First Brewed',
+                            RichTextCustom(
+                              label: 'First Brewed:',
                               valueText: controller.randomBeer.firstBrewed,
                               labelSize: 16,
                               valueTextLabel: 16,
@@ -78,8 +78,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                               width: double.infinity,
                               child: Stack(
                                 children: [
-                                  RichTextCusrom(
-                                    label: 'ABV',
+                                  RichTextCustom(
+                                    label: 'ABV:',
                                     valueText:
                                         controller.randomBeer.abv.toString(),
                                     labelSize: 16,
@@ -89,8 +89,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                   ),
                                   Positioned(
                                     left: width * 0.3,
-                                    child: RichTextCusrom(
-                                      label: 'IBU',
+                                    child: RichTextCustom(
+                                      label: 'IBU:',
                                       valueText:
                                           controller.randomBeer.ibu.toString(),
                                       labelSize: 16,
@@ -101,8 +101,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                   ),
                                   Positioned(
                                     left: width * 0.6,
-                                    child: RichTextCusrom(
-                                      label: 'EBC',
+                                    child: RichTextCustom(
+                                      label: 'EBC:',
                                       valueText:
                                           controller.randomBeer.ebc.toString(),
                                       labelSize: 16,
@@ -119,8 +119,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                               width: double.infinity,
                               child: Stack(
                                 children: [
-                                  RichTextCusrom(
-                                    label: 'SRM',
+                                  RichTextCustom(
+                                    label: 'SRM:',
                                     valueText:
                                         controller.randomBeer.srm.toString(),
                                     labelSize: 16,
@@ -130,8 +130,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                   ),
                                   Positioned(
                                     left: width * 0.3,
-                                    child: RichTextCusrom(
-                                      label: 'PH',
+                                    child: RichTextCustom(
+                                      label: 'PH:',
                                       valueText:
                                           controller.randomBeer.ph.toString(),
                                       labelSize: 16,
@@ -142,8 +142,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                   ),
                                   Positioned(
                                     left: width * 0.6,
-                                    child: RichTextCusrom(
-                                      label: 'AL',
+                                    child: RichTextCustom(
+                                      label: 'AL:',
                                       valueText: controller
                                           .randomBeer.attenuationLevel
                                           .toString(),
@@ -199,8 +199,18 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                               Text(
                                                 ingredient.name,
                                               ),
-                                              Text(ingredient?.amount?.value
-                                                  .toString())
+                                              RichTextCustom(
+                                                  label: ingredient
+                                                          ?.amount?.value
+                                                          .toString() +
+                                                      " -",
+                                                  valueText:
+                                                      ingredient?.amount?.unit,
+                                                  labelSize: 14,
+                                                  valueTextLabel: 14,
+                                                  labelColor:
+                                                      CustomColors.black,
+                                                  labelWeight: FontWeight.w400)
                                             ],
                                           ),
                                         ),
@@ -237,8 +247,18 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                               Text(
                                                 ingredient.name,
                                               ),
-                                              Text(ingredient?.amount?.value
-                                                  .toString()),
+                                              RichTextCustom(
+                                                  label: ingredient
+                                                          ?.amount?.value
+                                                          .toString() +
+                                                      " -",
+                                                  valueText:
+                                                      ingredient?.amount?.unit,
+                                                  labelSize: 14,
+                                                  valueTextLabel: 14,
+                                                  labelColor:
+                                                      CustomColors.black,
+                                                  labelWeight: FontWeight.w400)
                                             ],
                                           ),
                                         ),

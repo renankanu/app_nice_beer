@@ -2,8 +2,8 @@ import 'package:app_nice_beer/app/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RichTextCusrom extends StatelessWidget {
-  const RichTextCusrom({
+class RichTextCustom extends StatelessWidget {
+  const RichTextCustom({
     Key key,
     @required this.label,
     @required this.valueText,
@@ -26,7 +26,7 @@ class RichTextCusrom extends StatelessWidget {
       text: TextSpan(
         children: <TextSpan>[
           TextSpan(
-            text: '$label: ',
+            text: '$label ',
             style: GoogleFonts.robotoSlab(
                 textStyle: TextStyle(
                     color: labelColor,
