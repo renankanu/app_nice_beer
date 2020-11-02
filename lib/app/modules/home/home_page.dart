@@ -329,15 +329,26 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                               children: controller.randomBeer.foodPairing
                                   .map((food) => Container(
                                       margin:
-                                          const EdgeInsets.only(bottom: 8.0),
-                                      child: Text(food)))
+                                          const EdgeInsets.only(bottom: 4.0),
+                                      child: Text('° $food')))
                                   .toList(),
                             ),
+                            SizedBox(height: 20),
                             GestureDetector(
                               onTap: () {
                                 controller.getRandomBeer();
                               },
-                              child: Text('Click me'),
+                              child: Container(
+                                width: double.infinity,
+                                height: 46,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: CustomColors.texasRose),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Center(child: Text('Click me')),
+                                ),
+                              ),
                             )
                           ],
                         ),
