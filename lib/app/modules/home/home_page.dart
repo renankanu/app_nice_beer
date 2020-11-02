@@ -35,7 +35,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           children: <Widget>[
                             SizedBox(height: 20),
                             Text(
-                              'Beer of today',
+                              'Beer of the time',
                               style: TextStyle(fontSize: 32),
                             ),
                             SizedBox(height: 20),
@@ -51,11 +51,26 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                     ),
                             ),
                             SizedBox(height: 20),
-                            Text('Name: ${controller.randomBeer.name}'),
+                            RichTextCustom(
+                                label: 'Name: ',
+                                valueText: '${controller.randomBeer.name}',
+                                labelSize: 16,
+                                valueTextLabel: 14,
+                                labelColor: CustomColors.black,
+                                labelWeight: FontWeight.w500),
                             SizedBox(height: 10),
-                            Text('Tagline: ${controller.randomBeer.tagline}'),
+                            RichTextCustom(
+                                label: 'Tagline: ',
+                                valueText: '${controller.randomBeer.tagline}',
+                                labelSize: 16,
+                                valueTextLabel: 14,
+                                labelColor: CustomColors.black,
+                                labelWeight: FontWeight.w500),
                             SizedBox(height: 10),
-                            Text(controller.randomBeer.description),
+                            Text(
+                              controller.randomBeer.description,
+                              style: TextStyle(color: CustomColors.black),
+                            ),
                             SizedBox(height: 20),
                             Center(
                               child: Divider(
@@ -233,6 +248,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                 ),
                               ],
                             ),
+                            SizedBox(height: 10),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: controller.randomBeer.ingredients.hops
@@ -265,6 +281,24 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                       ))
                                   .toList(),
                             ),
+                            SizedBox(height: 20),
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'assets/icons/yeast.png',
+                                  height: 20,
+                                ),
+                                Text(
+                                  'Yeast',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: CustomColors.emerald),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            Text(controller.randomBeer.ingredients.yeast),
                             SizedBox(height: 20),
                             Center(
                               child: Divider(
