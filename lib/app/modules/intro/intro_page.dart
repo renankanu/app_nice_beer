@@ -2,6 +2,7 @@ import 'package:app_nice_beer/app/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroScreen extends StatefulWidget {
   @override
@@ -9,9 +10,31 @@ class IntroScreen extends StatefulWidget {
 }
 
 class _IntroScreenState extends State<IntroScreen> {
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   final introKey = GlobalKey<IntroductionScreenState>();
+  bool _name;
 
-  void _onIntroEnd(context) {
+  Future<bool> getSharedPrefs() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    _name = prefs.getBool('introDone') ?? false;
+    if (_name) {
+      Navigator.pushReplacementNamed(context, '/home');
+    }
+    return _name;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _name = false;
+    getSharedPrefs();
+  }
+
+  void _onIntroEnd(context) async {
+    final SharedPreferences prefs = await _prefs;
+    try {
+      await prefs.setBool('introDone', true);
+    } catch (e) {}
     Navigator.pushReplacementNamed(context, '/home');
   }
 
